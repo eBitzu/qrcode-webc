@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,11 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + Lit + TS</title>
     <link rel="stylesheet" href="./src/index.css" />
-    <script type="module" src="/src/qrcode-webc.ts"></script>
+    <script type="module" src="/src/QRCodeWebC.ts"></script>
   </head>
   <body>
-    <qrcode-webc value="some-code" id="canvas">
-      <h1>Vite + Lit</h1>
-    </qrcode-webc>
+    <div style="margin-bottom: 12px;">
+      <label for="qr-code">Insert the text:</label>
+      <input type="text" id="url-input" />
+    </div>
+    <div>
+      <qrcode-webc value="some-code" id="qr-code">
+        <h1>Vite + Lit</h1>
+      </qrcode-webc>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const qrcode = document.getElementById("qr-code");
+        const inputEl = document.getElementById("url-input");
+
+        inputEl.addEventListener("change", (e) => {
+          qrcode.setAttribute("value", e.currentTarget.value);
+        });
+      });
+    </script>
   </body>
 </html>

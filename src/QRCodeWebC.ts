@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { QRCodeErrorCorrectionLevel, toCanvas } from "qrcode";
 /**
@@ -18,7 +18,7 @@ export class QRCodeWebC extends LitElement {
   @property()
   width?: number = 200;
 
-  firstUpdated(updates: any) {
+  updated(updates: any) {
     super.firstUpdated(updates);
 
     toCanvas(
@@ -36,20 +36,16 @@ export class QRCodeWebC extends LitElement {
       }
     );
   }
+
   render() {
     return html`
-      <div>
-        <canvas
-          id="${this.id}_canvas"
-          width="${this.width}"
-          height="${this.width}"
-        ></canvas>
-        <slot></slot>
-      </div>
+      <canvas
+        id="${this.id}_canvas"
+        width="${this.width}"
+        height="${this.width}"
+      ></canvas>
     `;
   }
-
-  static styles = css``;
 }
 
 declare global {
