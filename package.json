@@ -1,17 +1,37 @@
 {
   "name": "qrcode-webc",
-  "private": true,
-  "version": "0.0.0",
+  "version": "1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "engines": {
+    "node": "^18.18",
+    "npm": "^9.8"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eBitzu/qrcode-webc"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/qr-wc.es.js",
+      "require": "./dist/qr-wc.umd.js"
+    },
+    "./dist/style.css": "./dist/style.css"
+  },
+  "main": "./dist/qr-wc.umd.js",
+  "module": "./dist/qr-wc.es.js",
+  "types": "./dist/index.d.ts",
   "dependencies": {
-    "@types/qrcode": "^1.5.2",
     "lit": "^2.7.6",
     "qrcode": "^1.5.3"
   },
@@ -21,10 +41,12 @@
     "@storybook/blocks": "^7.4.6",
     "@storybook/web-components": "^7.4.6",
     "@storybook/web-components-vite": "^7.4.6",
+    "@types/qrcode": "^1.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.4.6",
     "typescript": "^5.0.2",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "vite-plugin-dts": "^3.6.0"
   }
 }

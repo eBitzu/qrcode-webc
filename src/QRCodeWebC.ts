@@ -2,10 +2,9 @@ import { LitElement, html } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import { QRCodeErrorCorrectionLevel, toCanvas } from "qrcode";
 /**
- * An example element.
- *
- * @slot - This element has a slot
- *
+ * @param errorCorrectionLevel: QRCodeErrorCorrectionLevel
+ * @param value: string
+ * @param width: number
  */
 @customElement("qrcode-webc")
 export class QRCodeWebC extends LitElement {
@@ -49,7 +48,7 @@ export class QRCodeWebC extends LitElement {
 }
 
 declare global {
-  interface HTMLElementTagNameMap {
+  export interface HTMLElementTagNameMap {
     "qrcode-webc": QRCodeWebC;
   }
 }
